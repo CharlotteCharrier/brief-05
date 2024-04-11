@@ -13,6 +13,6 @@ export async function userLogin(req, res) {
     }
 }
 
-export function userLogout() {
+export function userLogout(req, res) {
     
 }

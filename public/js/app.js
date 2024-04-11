@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', async () => {
     const mainElement = document.querySelector('main');
-
+    const logoutBtn = document.querySelector('button');
     const token = sessionStorage.getItem('token');
 
     if(!token) {
@@ -27,5 +27,10 @@ window.addEventListener('DOMContentLoaded', async () => {
         mainElement.innerText = 'Bonjour ' + user.username
     } else {
         mainElement.innerText = 'Vous n\'êtes pas connecté(e) à un compte'
-    }
+    } 
+
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.clear();
+        document.location.href="/"
+    })
 })
