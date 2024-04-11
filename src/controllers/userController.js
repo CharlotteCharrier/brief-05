@@ -7,6 +7,8 @@ export async function getUserById(req, res, next) {
     })
     if(user) {
         res.json(user);
+    } else {
+        res.status(404).json({ error : 'Utilisateur non trouvé'})
     }
 }
 
@@ -21,3 +23,12 @@ export async function createUser(req, res, next) {
     }
 }
 
+export async function getCurrentUser(req, res) {
+    const user = req.user;
+    if(user) {
+        res.json({id: user.id, username: user.username})
+    } else {
+        console.error('Internal error : user not defined')
+        res.status(500).send('internal error')
+    }
+}
