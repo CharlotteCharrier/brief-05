@@ -4,5 +4,6 @@ window.addEventListener('load', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         document.location.href = '/'
+        alert('Utilisateur créé avec succès')
     })
 })

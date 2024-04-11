@@ -33,4 +33,13 @@ window.addEventListener('DOMContentLoaded', async () => {
         sessionStorage.clear();
         document.location.href="/"
     })
+
+    const displayPosts = await fetch('/users/recentposts')
+    .then(response => {
+        if(response.ok) {
+            console.log(response);
+        } else {
+            console.error('trouve pas les posts');
+        }
+    })
 })
