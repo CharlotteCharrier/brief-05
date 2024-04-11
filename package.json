@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/CharlotteCharrier/brief-05#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "nodemon": "^3.1.0",

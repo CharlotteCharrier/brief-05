@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import userRoutes from './routers/userRouter.js';
 import loginRouter from './routers/loginRouter.js';
 
@@ -10,6 +11,7 @@ const app = express();
 app.use(express.static("public")); //permet d'afficher tout ce qu'il y a dans le dossier public (mes vues)
 app.use(express.urlencoded({extended: true})) // lire FormData (accessible in 'req.body')
 app.use(express.json()) //for JSON body parsing
+app.use(cors());
 
 /*** Routeurs ***/
 app.use(loginRouter)
