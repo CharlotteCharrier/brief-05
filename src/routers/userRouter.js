@@ -8,6 +8,5 @@ router.use(requireAuthToken)
 
 router.get('/current', getCurrentUser)
 router.get('/:id', getUserById)
-router.post('/', createUser)
 
 export default router

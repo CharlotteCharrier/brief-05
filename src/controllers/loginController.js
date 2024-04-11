@@ -12,7 +12,3 @@ export async function userLogin(req, res) {
         res.status(401).json({ error: true, message: 'Echec de la connexion. Veuillez vérifier vos identifiants'});
     }
 }
-
-export function userLogout(req, res) {
-    
-}

@@ -1,5 +1,6 @@
 window.addEventListener('load', () => {
     const form = document.querySelector('form');
+    const registerBtn = document.querySelector('button');
     
     form.addEventListener('submit', async (e) => {
         e.preventDefault(); //annule l'événement par défaut du navigateur qui fait recharger la page 
@@ -30,4 +31,8 @@ window.addEventListener('load', () => {
             document.location.href ="/" //redirige sur une autre page quand on se connecte
         }
     })
+
+        registerBtn.addEventListener('click', () => {
+            document.location.href = '/register.html'
+        })
 })

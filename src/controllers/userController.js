@@ -13,7 +13,7 @@ export async function getUserById(req, res, next) {
 }
 
 export async function createUser(req, res, next) {
-    const { username, name, password } = re.body;
+    const { username, name, password } = req.body;
     const newUser = new User(username, name, password);
     const savedUser = await newUser.save().catch(err => {
         next(err)
