@@ -1,9 +1,13 @@
 import express from 'express'
-import { getUserById, createUser } from '../controllers/userController.js'
+import { getUserById, createUser, getCurrentUser } from '../controllers/userController.js'
+import { requireAuthToken } from '../middlewares/authToken.js'
 
 const router = express.Router()
 
-router.get('/users/:id', getUserById)
-router.post('/users', createUser)
+router.use(requireAuthToken)
+
+router.get('/current', getCurrentUser)
+router.get('/:id', getUserById)
+router.post('/', createUser)
 
 export default router

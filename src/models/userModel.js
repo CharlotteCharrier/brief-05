@@ -30,7 +30,7 @@ export class User {
         }
     }
 
-    async findById(userId) {
+    static async findById(userId) {
         const client = await db.connect();
         try {
             const queryText = 'SELECT * FROM "user" WHERE id=$1'
@@ -45,7 +45,7 @@ export class User {
     static async findByUsernameAndPassword(username, password) {
         const client = await db.connect();
         try {
-            const queryText = 'SELECT * FROM "user" WHERE username = $1 and password = $2';
+            const queryText = 'SELECT * FROM "user" WHERE LOWER(username) = LOWER($1) and password = $2'; // on a utilisé LOWER() sur le username et la valeur du 1er paramètre pour rendre le champ insensible à la casse
             const values = [username, password];
             const result = await client.query(queryText, values);
             return result.rows[0];

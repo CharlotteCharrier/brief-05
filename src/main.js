@@ -12,8 +12,8 @@ app.use(express.urlencoded({extended: true})) // lire FormData (accessible in 'r
 app.use(express.json()) //for JSON body parsing
 
 /*** Routeurs ***/
-app.use(userRoutes) // Routes users
 app.use(loginRouter)
+app.use('/users', userRoutes) // Routes users
 
 /*** Initialisation ***/
 app.listen(port, host, () => { //Start the server
